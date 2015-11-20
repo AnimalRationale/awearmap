@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.androidwearmap;
+package pl.appnode.awearmap;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

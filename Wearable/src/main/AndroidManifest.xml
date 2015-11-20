@@ -16,7 +16,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidwearmap" >
+    package="pl.appnode.awearmap" >
 
     <!-- Mark this app as an Android Wear app. -->
     <uses-feature android:name="android.hardware.type.watch" />
