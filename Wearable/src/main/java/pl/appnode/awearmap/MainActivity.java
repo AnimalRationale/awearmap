@@ -35,9 +35,10 @@ import android.widget.FrameLayout;
  * Sample that shows how to set up a basic Google Map on Android Wear.
  */
 public class MainActivity extends WearableActivity implements OnMapReadyCallback,
-        GoogleMap.OnMapLongClickListener {
+        GoogleMap.OnMapLongClickListener,  GoogleMap.OnMapClickListener {
 
     private static final LatLng SYDNEY = new LatLng(-33.85704, 151.21522);
+    private static final LatLng LONDON = new LatLng(51.52464, -0.12825);
 
     /**
      * Overlay that shows a short help text when first launched. It also provides an option to
@@ -134,16 +135,27 @@ public class MainActivity extends WearableActivity implements OnMapReadyCallback
         mMap.setOnMapLongClickListener(this);
 
         // Add a marker with a title that is shown in its info window.
-        mMap.addMarker(new MarkerOptions().position(SYDNEY)
+        mMap.addMarker(new MarkerOptions().position(LONDON)
                 .title("Sydney Opera House"));
 
         // Move the camera to show the marker.
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SYDNEY, 10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LONDON, 15));
+
+        mMap.setOnMapClickListener(this);
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
     }
 
     @Override
     public void onMapLongClick(LatLng latLng) {
         // Display the dismiss overlay with a button to exit this activity.
         mDismissOverlay.show();
+    }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        // Changes type of displayed map.
+        if (mMap.getMapType() == GoogleMap.MAP_TYPE_SATELLITE) {
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        } else {mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);}
     }
 }
