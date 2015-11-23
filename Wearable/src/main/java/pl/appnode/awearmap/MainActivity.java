@@ -135,8 +135,8 @@ public class MainActivity extends WearableActivity implements OnMapReadyCallback
         mMap.setOnMapLongClickListener(this);
 
         // Add a marker with a title that is shown in its info window.
-        mMap.addMarker(new MarkerOptions().position(LONDON)
-                .title("Sydney Opera House"));
+//        mMap.addMarker(new MarkerOptions().position(LONDON)
+//                .title(""));
 
         // Move the camera to show the marker.
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LONDON, 15));
