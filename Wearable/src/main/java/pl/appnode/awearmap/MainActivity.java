@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.DismissOverlayView;
@@ -143,6 +144,7 @@ public class MainActivity extends WearableActivity implements OnMapReadyCallback
 
         mMap.setOnMapClickListener(this);
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.setMyLocationEnabled(true);
     }
 
     @Override
@@ -157,5 +159,9 @@ public class MainActivity extends WearableActivity implements OnMapReadyCallback
         if (mMap.getMapType() == GoogleMap.MAP_TYPE_SATELLITE) {
             mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         } else {mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);}
+    }
+
+    private boolean hasGps() {
+        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS);
     }
 }
