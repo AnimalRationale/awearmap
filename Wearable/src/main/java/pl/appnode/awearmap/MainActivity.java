@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.DismissOverlayView;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowInsets;
 import android.widget.FrameLayout;
@@ -38,6 +39,7 @@ import android.widget.FrameLayout;
 public class MainActivity extends WearableActivity implements OnMapReadyCallback,
         GoogleMap.OnMapLongClickListener,  GoogleMap.OnMapClickListener {
 
+    private static final String LOGTAG = "MainActivity";
     private static final LatLng SYDNEY = new LatLng(-33.85704, 151.21522);
     private static final LatLng LONDON = new LatLng(51.52464, -0.12825);
 
@@ -136,8 +138,8 @@ public class MainActivity extends WearableActivity implements OnMapReadyCallback
         mMap.setOnMapLongClickListener(this);
 
         // Add a marker with a title that is shown in its info window.
-//        mMap.addMarker(new MarkerOptions().position(LONDON)
-//                .title(""));
+        mMap.addMarker(new MarkerOptions().position(LONDON)
+                .title("Start"));
 
         // Move the camera to show the marker.
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LONDON, 15));
@@ -145,6 +147,14 @@ public class MainActivity extends WearableActivity implements OnMapReadyCallback
         mMap.setOnMapClickListener(this);
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         mMap.setMyLocationEnabled(true);
+        mMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
+            @Override
+            public boolean onMyLocationButtonClick() {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LONDON, 15));
+                Log.d(LOGTAG, "My location button click.");
+                return true;
+            }
+        });;
     }
 
     @Override
