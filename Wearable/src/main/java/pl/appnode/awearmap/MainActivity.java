@@ -141,12 +141,13 @@ public class MainActivity extends WearableActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(LONDON)
                 .title("Start"));
 
-        // Move the camera to show the marker.
+        // Set camera on start location.
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LONDON, 15));
 
         mMap.setOnMapClickListener(this);
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         mMap.setMyLocationEnabled(true);
+        // Listener for current location button clicks.
         mMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
             @Override
             public boolean onMyLocationButtonClick() {
