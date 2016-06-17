@@ -18,14 +18,14 @@ apply plugin: 'com.android.application'
 
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "pl.appnode.awearmap"
         minSdkVersion 21
-        targetSdkVersion 23
-        versionCode 3
+        targetSdkVersion 24
+        versionCode 4
         versionName "0.0"
     }
     buildTypes {
@@ -50,5 +50,5 @@ dependencies {
     provided 'com.google.android.wearable:wearable:1.0.0'
 
     // Include the Google Maps Android API from Google Play Services.
-    compile 'com.google.android.gms:play-services-maps:8.4.0'
+    compile 'com.google.android.gms:play-services-maps:9.0.2'
 }
