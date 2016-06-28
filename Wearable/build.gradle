@@ -25,7 +25,7 @@ android {
         applicationId "pl.appnode.awearmap"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 4
+        versionCode 5
         versionName "0.0"
     }
     buildTypes {
@@ -50,5 +50,5 @@ dependencies {
     provided 'com.google.android.wearable:wearable:1.0.0'
 
     // Include the Google Maps Android API from Google Play Services.
-    compile 'com.google.android.gms:play-services-maps:9.0.2'
+    compile 'com.google.android.gms:play-services-maps:9.2.0'
 }
